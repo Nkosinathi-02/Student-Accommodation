@@ -1,0 +1,111 @@
+﻿@model WebApplication20.Models.Payment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+        }
+
+        .payment-container {
+            max-width: 500px;
+            margin: 100px auto; /* Center the container */
+            background-color: #fff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            padding: 30px;
+        }
+
+        .payment-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .payment-form {
+            margin-bottom: 30px;
+        }
+
+            .payment-form input[type="text"],
+            .payment-form input[type="email"],
+            .payment-form input[type="number"] {
+                border-radius: 5px;
+                padding: 10px;
+                width: 100%;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+            }
+
+            .payment-form input[type="submit"] {
+                border-radius: 5px;
+                padding: 10px 0;
+                width: 100%;
+                background-color: #007bff; /* Blue button */
+                color: #fff; /* White text */
+                border: none;
+                cursor: pointer;
+            }
+
+                .payment-form input[type="submit"]:hover {
+                    background-color: #0056b3; /* Dark blue button on hover */
+                }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="payment-container">
+            <div class="payment-header">
+                <h2>Secure Payment</h2>
+                <p>Please fill in your payment details</p>
+            </div>
+            <form class="payment-form" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="FullName" class="form-control" placeholder="Full Name">
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Email" class="form-control" placeholder="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="CardNumber" class="form-control" placeholder="Card Number">
+                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <input asp-for="ExpiryDate" class="form-control" placeholder="Expiry Date">
+                        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <input asp-for="CVV" class="form-control" placeholder="CVV">
+                        <span asp-validation-for="CVV" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Amount" class="form-control" placeholder="Amount">
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <input type="submit" value="Pay Now" class="btn btn-primary">
+                
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
